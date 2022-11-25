@@ -1,38 +1,213 @@
-.App {
+:root{
+  --main-bg-color:#C8FFE8;
+  --border-color:#0288d147;
+  --container-width:500px;
+}
+
+
+
+.logo {
+  /* position: absolute; */
+  top: 10px;
+  left: 10px;
+  width: 95px;
+  margin: 6px;
+  
+}
+
+
+
+ .upload-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+.upload-container{
+  background: #ffffff;
+  margin-top: 4%;
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px #0000002e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload-container .title{
+  font-size: 22px;
+}
+
+
+.icon-container{
+  width: 75px;
+  height: 100px;
+  position: relative;
+  
+}
+
+
+.icon-container img{
+  width: 75px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+
+.icon-container .center{
+  z-index: 2;
+}
+
+.icon-container .right , .icon-container .left{
+  filter: grayscale(.5);
+  transform: scale(.9);
+}
+
+.dragged .icon-container .right{
+  transform: rotate(10deg) translateX(20px) scale(.9);
+}
+
+.dragged .icon-container .left{
+  transform: rotate(-10deg) translateX(-20px) scale(.9);
+}
+
+.dragged .icon-container .center{
+  transform: translateY(-5px);
+}
+
+#fileInput{
+  display: none;
+}
+
+.browseBtn{
+  color: #2196f3;
+  cursor: pointer;
+}
+
+
+
+
+
+.sharing-container{
+  width: var(--container-width);
+  margin-bottom: 20px;
+  /* display: none; */
+}
+
+p{
+  opacity:0.7 ;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.sharing-container .input-container{
+  position: relative;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.sharing-container .input-container input{
+  width:100%;
+  border: 3px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  background: #f5fcff;
+  color: #0000008c;
 }
 
-.App-link {
-  color: #61dafb;
+.input-container img{
+  position: absolute;
+  height: 25px;
+  width: 26px;
+  right: 7px;
+  top: 12px;
+  background: #f7fdff;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.email-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 3px solid var(--border-color);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.email-container .field{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 400px;
+}
+
+.email-container input{
+  font-size: 18px;
+  border: none;
+  border-bottom: 3px solid var(--border-color);
+  text-align: center;
+}
+
+.email-container input:focus{
+  outline: none;
+}
+
+
+.email-container button{
+  font-size: 18px;
+  padding: 8px 40px;
+  margin-top: 15px;
+  background: var(--main-bg-color);
+  border: none;
+  border-radius: 5px;
+  color: #607d8b;
+  cursor: pointer;
+} 
+
+
+
+.upload-vector{
+  /* background: url(./undraw_uploading_re_okvh.svg) no-repeat center; */
+  background-size: contain;
+  height: 50vh;
+  
+  
+  width: 50vh;
+}
+.upload-vector .vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+.upload-vector .vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+@media screen and (max-width: 900px) {
+  :root {
+    --container-width: 320px;
   }
-  to {
-    transform: rotate(360deg);
+  .image-vector {
+    display: none;
+  }
+  .email-container .field {
+    flex-direction: column;
+  }
+  .email-container .field {
+    width: 300px;
   }
 }
